@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+:root {
+    --clr-primary-900:hsl(245, 75%, 52%);
+    --clr-primary-200:hsl(225, 100%, 94%);
+    --clr-neutral-900 :hsl(223, 47%, 23%);
+    --clr-neutral-500:hsl(224, 23%, 55%);
+    --clr-neutral-200:hsl(225, 100%, 98%);
+
+    --fs:16px;
+    --ff:src="Red Hat Display";
+}
+
+.card {
+    margin:100px 50px 100px 50px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--clr-neutral-200);
+    border-radius: 19px;
+    font-size:var(--fs);
+    font-family:"Red Hat Display";
+    
+    
+}
+
+body {
+    background-color: var(--clr-primary-200);
+    font-size:var(--fs);
+}
+
+.card__pic{
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+}
+
+.card__change_plan {
+ 
+    display:flex;
+    margin-left:60px;
+    margin-top:30px;
+    margin-bottom:30px;
+
+    
+
+}
+
+p {
+    color:var(--clr-neutral-500);
+    margin:0;
+}
+
+.card__change_plan_plan {
+    display:grid;
+    margin-left:40px;
+}
+
+h4 {
+    margin:0;
+}
+
+a {
+    text-decoration: none;
+    background-color:var(--clr-primary-900);
+    color:var(--clr-neutral-200);
+    padding:8px 56px;
+    border-radius:5px;
+    
+}
+
+.card__change_plan_music {
+    margin-left:-20px;
+}
+.card__change_plan_change{
+    border:none;
+    text-decoration: underline;
+    color:var(--clr-primary-900);
+    margin-left:30px;
+}
+.card__cancel {
+    border:none;
+    padding:20px;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    color:var(--clr-neutral-500);
+    font-size:var(--fs);
+    font-weight: bold;
+}
+.card__payment {
+    display:flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+.card__proceed {
+    margin-bottom:9px;
+    
+}
