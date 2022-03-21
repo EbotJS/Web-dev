@@ -254,12 +254,69 @@ if(q20.value === answers[19]){
 
 
 
-
-
 localStorage.setItem('points', points.value);
 });
 
-console.log(points.value);
+
+// display the questions requested in the drop down
+
+const htmlDisplay = document.getElementById('html_questions');
+const cssDisplay = document.getElementById('css_questions');
+const jsDisplay = document.getElementById('js_questions');
+const select = document.getElementById('language');
+
+
+
+const languages = ['html', 'css', 'javascript'];
+const defaultDisplay = () =>{
+        cssDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none';
+}
+defaultDisplay();
+const displayLanguage = () => {
+    
+    if(select.options[select.selectedIndex].value === languages[0]){
+        cssDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none';
+        htmlDisplay.style.display = 'block';
+    }else if(select.options[select.selectedIndex].value === languages[1]){
+        cssDisplay.style.display = 'block';
+        htmlDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none'
+    }else if(select.options[select.selectedIndex].value === languages[2]){
+        jsDisplay.style.display = 'block';
+        cssDisplay.style.display = 'none';
+        htmlDisplay.style.display = 'none';
+    }
+}
+
+
+//name input
+
+const username = document.getElementById('username');
+const submitName = document.getElementById('submitName');
+
+submitName.addEventListener("click", ()=>{
+
+    localStorage.setItem('username', username.value);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

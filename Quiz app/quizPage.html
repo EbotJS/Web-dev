@@ -11,17 +11,23 @@
     <h1>QUIZ</h1>
     <div clas="info">
         <form>
+            <label for="username">
+                <input type="text" name="username" id="username">
+            </label>
+            <input type="submit" id="submitName">
+         </form>
+
+        <form>
             <label for="language">Select the language</label>
-        <select name="language" id="language">    
-            <option value="html">Html</option>
-            <option value="css">Css</option>
-            <option value="javascript">Javascript</option>
+            <select name="language" id="language" onchange="displayLanguage()">  
+                <option value="html">Html</option>
+                <option value="css">Css</option>
+                <option value="javascript">Javascript</option>
         </select>
-        <input type="submit">
         </form>
     </div>
 
-    <section class="html_questions">
+    <section class="html_questions" id="html_questions">
         <h2>HTML</h2>
     <div class="mcqs">
         <h4>MCQs</h4>
@@ -229,6 +235,14 @@
                                                
         </form>
     </div>
+    </section>
+
+    <section class="css" id="css_questions">
+    <h1>CSS</h1>
+    </section>
+
+    <section class="js" id="js_questions">
+    <h1>Javascript</h1>
     </section>
 
     <script src="quiz.js"></script>
