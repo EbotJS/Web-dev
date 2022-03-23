@@ -253,8 +253,12 @@ if(q20.value === answers[19]){
 }else if(q20.value !== answers[19]){points.value = points.value;}
 
 
-
-localStorage.setItem('points', points.value);
+if(localStorage.getItem('points') == null){
+    localStorage.setItem('points', '[]');
+}
+    let pointArr = JSON.parse(localStorage.getItem('points'));
+    pointArr.push(points.value);
+localStorage.setItem('points', JSON.stringify(pointArr));
 });
 
 
@@ -296,16 +300,34 @@ const displayLanguage = () => {
 const username = document.getElementById('username');
 const submitName = document.getElementById('submitName');
 
+ 
+
 submitName.addEventListener("click", ()=>{
 
-    localStorage.setItem('username', username.value);
+    //  if(localStorage.getItem('usernames') == null){
+    //      localStorage.setItem('usernames', '[]');
+    //  }
+
+    //  let name = username.value.toString();
+    // let usernames = JSON.parse(localStorage.getItem('usernames'));
+    // if(usernames.includes(name) == false){
+    // usernames.push(name);
+    // }
+    // localStorage.setItem('usernames', JSON.stringify(usernames));
+
+     if(localStorage.getItem('usernames') == null){
+         localStorage.setItem('usernames', '[]');
+     }
+
+     let name = username.value.toString();
+     let usernames = JSON.parse(localStorage.getItem('usernames'));
+
+     if(usernames.includes(name) === false){
+         usernames.push(name);
+     }
+    localStorage.setItem('usernames', JSON.stringify(usernames));
+
 })
-
-
-
-
-
-
 
 
 
