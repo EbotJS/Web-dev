@@ -27,7 +27,8 @@ const averagePoints = (points) => {
 
 // Number of quiz takers
 const numOfQuizTakers = (usernames) => {
-return usernames.length;
+console.log(usernames);
+  return usernames.length;
 }
 
 

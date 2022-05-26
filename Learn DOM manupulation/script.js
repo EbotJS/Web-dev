@@ -118,6 +118,16 @@ btn.addEventListener('click', () => {
 //     para.innerText = input.value;
 // }
 
+
+
+
+
+
+
+
+
+/*
+
 const number = document.querySelector('.number');
 const incBtn = document.getElementById('increment');
 const decBtn = document.getElementById('decrement');
@@ -141,6 +151,39 @@ resetBtn.addEventListener("click", () => {
    number.innerText = 0;
 });
 
+*/
+
+
+/*
+const number = document.querySelector('.number');
+let count = 0;
+const incNumber = () => {
+count++;
+number.innerText = count;
+}
+
+const decNumber = () => {
+count--;
+number.innerText = count;
+}
+
+const resetNumber = () => {
+    count = 0;
+    number.innerText = count;
+}
+
+*/
+
+const para = document.getElementById('para');
+const input = document.getElementById('input')
+
+const display = () => {
+    para.innerText = input.value; 
+}
+
+
+
+console.log(para)
 
 
 

@@ -1,4 +1,4 @@
-
+/*
 const q1 = document.getElementsByName('q1');
 const submit = document.getElementById('submit');
 const q2 = document.getElementsByName('q2');
@@ -31,7 +31,7 @@ const answers = ['article', 'p', 'id',
     'strong'],['href', 'src'],['meta',
      'script'], 'ul', 'ul',
      'circle', '&amp', 'sub', 'false',
-      'false', 'false', 'true', 'false'];
+        'false', 'false', 'true', 'false'];
 submit.addEventListener("click", () =>{
 
     //question 1
@@ -61,18 +61,32 @@ submit.addEventListener("click", () =>{
     }
   }
 
-  //question 3
-  for(let i=0; i < q4.length; i++){
-    if(q3[i].checked){
-        if(q3[i].value === answers[2]){
-            points.value++;
+//   const answer = (questionNumber, questionType) => {
+//     if (questionType === 'double') {
+//         ...
+//     } else {
+
+//     }
+//   }
+
+//   for i==1; i<=20 {
+//       var1 = `q${i}`
+//       answer(${i}`)
+//       i++
+//   }
+//  answer(q1, single)
+//   //question 3
+//   for(let i=0; i < q4.length; i++){
+//     if(q3[i].checked){
+//         if(q3[i].value === answers[2]){
+//             points.value++;
             
-        }else{
-            points.value = points.value;
+//         }else{
+//             points.value = points.value;
     
-        }
-    }
-  }
+//         }
+//     }
+//   }
 
   //question 4
   for(let i=0; i < q4.length; i++){
@@ -330,6 +344,7 @@ submitName.addEventListener("click", ()=>{
 })
 
 
+*/
 
 
 
@@ -343,36 +358,191 @@ submitName.addEventListener("click", ()=>{
 
 
 
-/*
-const questions = ['q1', 'q2', 'q3', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'];
-const answers = ['article', 'p', 'id', 'script', ['h1', 'h6'], ['form', 'table', 'figcaption'], ['mark', 'details', 'strong']];
 
-function Person(points, questions){
-    this.points = points;
-    this.questions = questions;
-    this.calcPoints = () =>{
-    for(let i=0; i < this.questions.length; i++){
-        for(let i=0; i < q2.length; i++){
-            if(q2[i].checked){
-                if(q2[i].value === answers[1]){
+
+
+let points = { 
+    value: 0,
+     j   : 0
+    };
+const answers = ['article', 'p', 'id',
+ 'script', 'Hyper Text Markup Language',
+  ['h1', 'h6'], ['form', 'table',
+   'figcaption'], ['mark', 'details',
+    'strong'],['href', 'src'],['meta',
+     'script'], 'ul', 'ul',
+     'circle', '&amp', 'sub', 'false',
+      'false', 'false', 'true', 'false'];
+let questions = [];
+let questLength = 10;
+const getElements = (questionArr, arrayLength) => {
+for(let i=1; i<=arrayLength; i++){
+    let q= document.getElementsByName(`q${i}`);
+    questionArr.push(q);
+  }
+  for(let i=11; i<=20; i++){
+    let q= document.getElementById(`q${i}`);
+    questionArr.push(q);
+  }
+}
+getElements(questions, questLength);
+const option = { opt1: false, opt2: false, opt3: false};
+
+// function to calculate the point gotten from each 
+// question
+
+const calcPoints = (question, questionType, numOfAnswers=1) => {
+
+    if(questionType === 'single answer'){
+    for(let i=0; i < question.length; i++){
+
+        if(question[i].checked){
+            if(question[i].value === answers[points.j]){
+                points.value++;
+                
+            }else{
+                points.value = points.value;
+                
+            }
+        }
+    }
+   points.j++;
+ } 
+
+ else if(questionType === 'multiple answers'){
+       if(numOfAnswers===2){
+    for(let i=0; i < question.length; i++){
+        if(question[i].checked){
+            if(question[i].value === answers[points.j][0]){
+                option.opt1 = true;
+                continue;
+            }else if(option.opt1 === true && question[i].value === answers[points.j][1]){
+                points.value++;
+                break;
+            }
+            else{
+                points.value = points.value;
+        
+            }
+        }
+      }
+    }else{
+        for(let i=0; i < question.length; i++){
+            if(question[i].checked){
+                if(question[i].value === answers[points.j][0]){
+                    option.opt1 = true;
+                    continue;
+                }else if(option.opt1 === true && question[i].value === answers[points.j][1]){
                     points.value++;
-                    
-                }else{
+                    break;
+                }
+                else{
                     points.value = points.value;
             
                 }
             }
           }
     }
-
-        localStorage.setItem('points', points.value);
-    }
+    points.j++;
+}
+        
+ else if(questionType === 'structural'){
+    if(question.value === answers[points.j]){
+        points.value++;
+    }else if(question.value !== answers[points.j]){
+        points.value = points.value;
+    }    
+ points.j++;
 }
 
-*/
 
 
 
+}
 
+// main function for calculating the points
+
+const mainCalc = () => {
+    // single answer questions 1-5
+    for(let i=0; i < 5; i++){
+    calcPoints(questions[i], 'single answer');
+      }
+      //multi-answer questions
+    calcPoints(questions[5], 'multiple answers', 2);
+    calcPoints(questions[6], 'multiple answers', 3);
+    calcPoints(questions[7], 'multiple answers', 3);
+    calcPoints(questions[8], 'multiple answers', 2);
+    calcPoints(questions[9], 'multiple answers', 2);
+// structural questions
+for(let i=10; i<20; i++){
+    calcPoints(questions[i], 'structural');
+}
+
+
+    if(localStorage.getItem('points') == null){
+        localStorage.setItem('points', '[]');
+    }
+        let pointArr = JSON.parse(localStorage.getItem('points'));
+        pointArr.push(points.value);
+    localStorage.setItem('points', JSON.stringify(pointArr));
+    
+}
+
+
+
+// This is the code which adds the username entered
+// by the player into an array
+
+const username = document.getElementById('username');
+
+const addPlayer = () => {
+
+
+    if(localStorage.getItem('usernames') == null){
+        localStorage.setItem('usernames', '[]');
+    }
+
+    let name = username.value.toString();
+    let usernames = JSON.parse(localStorage.getItem('usernames'));
+
+    if(usernames.includes(name) === false){
+        usernames.push(name);
+    }
+   localStorage.setItem('usernames', JSON.stringify(usernames));
+  
+}
+
+
+// display quiz
+
+const htmlDisplay = document.getElementById('html_questions');
+const cssDisplay = document.getElementById('css_questions');
+const jsDisplay = document.getElementById('js_questions');
+const select = document.getElementById('language');
+
+
+
+const languages = ['html', 'css', 'javascript'];
+const defaultDisplay = () =>{
+        cssDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none';
+}
+defaultDisplay();
+const displayLanguage = () => {
+    
+    if(select.options[select.selectedIndex].value === languages[0]){
+        cssDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none';
+        htmlDisplay.style.display = 'block';
+    }else if(select.options[select.selectedIndex].value === languages[1]){
+        cssDisplay.style.display = 'block';
+        htmlDisplay.style.display = 'none';
+        jsDisplay.style.display = 'none'
+    }else if(select.options[select.selectedIndex].value === languages[2]){
+        jsDisplay.style.display = 'block';
+        cssDisplay.style.display = 'none';
+        htmlDisplay.style.display = 'none';
+    }
+}
 
 
