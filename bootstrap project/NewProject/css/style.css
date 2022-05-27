@@ -23,6 +23,10 @@
   font-size: 0.8rem;
 }
 
+.submit-btn {
+  background-color: #f4623a;
+}
+
 header .logo {
   font-weight: 700;
 }
@@ -101,5 +105,13 @@ hr {
 .get-in-touch .border {
   background-color: #f4623a;
   opacity: 1;
+}
+
+.input {
+  color: red;
+}
+
+.number {
+  font-family: Merriweather, sans-serif;
 }
 /*# sourceMappingURL=style.css.map */
