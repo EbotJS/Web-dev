@@ -19,19 +19,43 @@
   font-size: 15px;
 }
 
-.btn {
+.button1:hover {
+  background-color: #e1491f;
+}
+
+.btns {
   font-size: 0.8rem;
+  max-width: 9.7rem;
 }
 
 .submit-btn {
   background-color: #f4623a;
 }
 
-header .logo {
-  font-weight: 700;
+.submit-btn:hover {
+  background-color: #f4623a;
 }
 
-.nav-items a {
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body *, body *::before, body *::after {
+  margin: 0;
+  padding: 0;
+}
+
+header .logo {
+  font-weight: 700;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.nav-items li {
+  font-size: 0.9rem;
+}
+
+.nav-items li a {
   color: #495057;
   font-family: "Merriweather Sans", sans-serif;
   font-weight: 700;
@@ -50,11 +74,12 @@ header .logo {
 
 .home h1 {
   font-size: 35.5px;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 .home p {
-  font-family: "Merriweather Sans", sans-serif;
-  font-size: 0.85rem;
+  font-family: Merriweather, sans-serif;
+  font-size: 0.97rem;
   font-weight: 300;
   color: rgba(223, 223, 223, 0.75);
   line-height: 1.3rem;
@@ -85,12 +110,13 @@ hr {
   background-color: #fff;
 }
 
-.get-started .small-title {
-  font-weight: 400;
+.get-started h1 {
+  font-family: Merriweather, sans-serif;
 }
 
 .get-started p {
   color: rgba(223, 223, 223, 0.75);
+  font-family: Merriweather, sans-serif;
 }
 
 .content {
@@ -113,5 +139,83 @@ hr {
 
 .number {
   font-family: Merriweather, sans-serif;
+}
+
+.category {
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.project-name {
+  font-family: Merriweather, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+.caption-1 {
+  position: absolute;
+  z-index: 2;
+  top: 306%;
+}
+
+.caption-2 {
+  position: absolute;
+  z-index: 2;
+  top: 347%;
+}
+
+.caption-3 {
+  position: absolute;
+  z-index: 2;
+  top: 388%;
+}
+
+.caption-4 {
+  position: absolute;
+  z-index: 2;
+  top: 426%;
+}
+
+.caption-5 {
+  position: absolute;
+  z-index: 2;
+  top: 467%;
+}
+
+.caption-6 {
+  position: absolute;
+  z-index: 2;
+  top: 508%;
+}
+
+label {
+  font-family: Merriweather, sans-serif;
+}
+
+.caption {
+  opacity: 1;
+}
+
+@media (min-width: 992px) {
+  ul {
+    margin-left: 21.5rem;
+  }
+  .home h1 {
+    font-size: 2.9rem;
+  }
+  .home p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  ul {
+    margin-left: 32rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

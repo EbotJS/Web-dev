@@ -5,13 +5,21 @@
     border-color: #f4623a;
     font-family: $ff-2;
     font-size: 15px;
-    
 }
 
-.btn{
+.button1:hover{
+    background-color: #e1491f;
+}
+
+.btns{
     font-size: 0.8rem;
+    max-width: 9.7rem;
 }
 
 .submit-btn{
-    background-color: $clr-primary
+    background-color: $clr-primary;
+}
+
+.submit-btn:hover{
+    background-color: $clr-primary;
 }
