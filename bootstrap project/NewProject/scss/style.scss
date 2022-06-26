@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
 @import 'defaults';
-@import 'buttons';
 @import 'variables';
+@import 'buttons';
 
 
 *, *::before, *::after{
@@ -38,102 +38,86 @@ header{
 
 
 .home{
-   // background-image: url('/bg-masthead.jpg');
+
    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(/assets/img/bg-masthead.jpg);
     width: 100%;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
-    // background-position-y: -1rem;
-    position: relative;
-    
+
+   
     h1{
         font-size: 35.5px;
         font-family: $ff-2;
     }
-    p{
-        font-family: $ff-1;
-        font-size: 0.97rem;
-        font-weight: $light;
-       color: $clr-description;
-    //    color: #626a67; 
+    // p{
+    //     font-family: $ff-1;
+    //     font-size: 0.97rem;
+    //     font-weight: $light;
+    //    color: $clr-description;
+ 
     
-       line-height: 1.3rem;
-    }
+    //    line-height: 1.3rem;
+    // }
 
     hr{
         background-color: $clr-primary;
         opacity: 1;
-        border-color: none;
     }
 }
-//   .home::before{
-//       position: absolute;
-//       content: "";
-//       background-color: rgba(92, 77, 66, 0.8);
-//       inset: 0;
-//       mix-blend-mode:color;
 
-//   }
+
 
 .main-title{
     font-size: $title-fs;
 }
-
-// .border{
-//     margin-left: 8rem;
-//     margin-right: 8rem;
-//     border: 1.5px solid $clr-primary;
+// hr{
+//     width: 3.3rem;
+//     max-width: 3.3rem;
+//     height: 0.20rem;
+ 
+//     opacity: 1;
 // }
-hr{
-    width: 3.3rem;
-    max-width: 3.3rem;
-    height: 0.20rem;
-    // max-height: 0.20rem;
-    opacity: 1;
-}
 
 .get-started{
     background-color: $clr-primary;
     
-    .border{
-        background-color: #fff;
-        // opacity: 1;
-    }
-    
-  h1{
-    font-family: $ff-1;
-  }
-    // .small-title{
-    //     font-weight: $regular;
+    // hr{
+        // background-color: #fff;
+    //     z-index: 2;
     // }
-    p{
-        color: $clr-description;
-        font-family: $ff-1;
-    }
+    
+//   h1{
+//     font-family: $ff-2;
+//   }
+ 
+//     p{
+//         color: $clr-description;
+//         font-family: $ff-1;
+//     }
 }
 
-.content{
-    font-size: 0.95rem;
-    font-family: $ff-1;
-    // color: $clr-description;
-}
+// .content{
+//     font-size: 0.95rem;
+//     font-family: $ff-1;
+ 
+// }
 
 .services{
 
     hr{
         background-color: $clr-primary;
-        // opacity: 1;
+ 
     }
 }
 
-.get-in-touch{
-    .border{
-        background-color: $clr-primary;
-        opacity: 1;
-    }
-}
+// .get-in-touch{
+//     .border{
+//         background-color: $clr-primary;
+//         opacity: 1;
+//     }
+// }
 
 .input{
     color: red;
@@ -143,13 +127,13 @@ hr{
     font-family: $ff-1;
 }
 
-.category{
-    font-family: $ff-2;
-}
+// .category{
+//     font-family: $ff-2;
+// }
 
-.project-name{
-    font-family: $ff-1;
-}
+// .project-name{
+//     font-family: $ff-1;
+// }
 
 a{
     text-decoration: none;
@@ -159,133 +143,32 @@ a{
 }
 
 
-.caption-1{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 306%;
-}
-.caption-2{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 347%;
-}
-.caption-3{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 388%;
-}
-.caption-4{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 426%;
-}
-.caption-5{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 467%;
-}
-.caption-6{
-    position: absolute;
-    // top: 2rem;
-    z-index: 2;
-    top: 508%;
-}
-
-
-// .portfolio-section{
- 
-
-//     // .imgs{
-//     //     position: relative;
-//     //     // top: 2rem;
-        
-//     //     top: 5rem;
-//     // }
-//     // .caption{
-//     //     z-index: 999;
-//     //     position: relative;
-//     //     top: -3rem;
-
-//     // }
-
-
-//     //    img{
-//     // //    height: 10rem;
-//     //    position: relative;
-//     //    }
-
-  
-    
-//    }
 
 
 label{
     font-family: $ff-1;
 }
 
-// .navbar{
-//     background-color: #ffffff;
-// }
-.caption{
-    opacity: 1;
-    // transition: opacity 0.25s ease;
-}
-// .portfolio-container:hover{
-//     .caption{
-//         opacity: 1;
-//     }
-// }
-
-// .portfolio-container-1{
-//     background: url(/assets/img/portfolio/fullsize/1.jpg);
-// }
-// .portfolio-container-2{
-//     background: url(/assets/img/portfolio/fullsize/2.jpg);
-// }
-// .portfolio-container-3{
-//     background: url(/assets/img/portfolio/fullsize/3.jpg);
-// }
-// .portfolio-container-4{
-//     background: url(/assets/img/portfolio/fullsize/4.jpg);
-// }
-// .portfolio-container-5{
-//     background: url(/assets/img/portfolio/fullsize/5.jpg);
-// }
-// .portfolio-container-6{
-//     background: url(/assets/img/portfolio/fullsize/6.jpg);
-// }
 
 
 
-@media (min-width: 992px){
+//  @media (min-width: 992px){
  
-    ul{
-        margin-left: 21.5rem;
-    }
+// //     ul{
+// //         margin-left: 21.5rem;
+// //     }
     
     
 
-    .home{
+//     .home{
        
-       h1{
-           font-size: 2.9rem;
-       }
-       p{
-           font-size: 1.1rem;
-       }
-    }
+//        h1{
+//            font-size: 2.9rem;
+//        }
+//        p{
+//            font-size: 1.1rem;
+//        }
+//     }
 
-}
+// }
 
-@media (min-width: 1200px){
- 
-    ul{
-        margin-left: 32rem;
-    }
-
-}
