@@ -71,3 +71,53 @@ window.addEventListener("scroll", changeOnScroll);
 //   let caption = document.querySelector('.capt');
 //   caption.style.display = 'block';
 // }
+
+// let get_Started = document.getElementById('getStarted');
+// console.log(get_Started.offsetTop);
+
+/* this function changes the color of the nav items when the corresponding page is viewed */
+
+const changeNavItemColor = () => {
+   const getStartedPage = document.getElementById('getStarted');
+   const servicesPage = document.getElementById('services');
+   const portfolioPage = document.getElementById('portfolio');
+   const getInTouchPage = document.getElementById('get-in-touch');
+   let pages = [getStartedPage, servicesPage, portfolioPage, getInTouchPage];
+   let nav_links = document.getElementsByClassName('nav-link');
+   let windowDist = window.pageYOffset;
+
+
+  
+
+       let page1 = pages[0].getBoundingClientRect();
+       let page2 = pages[1].getBoundingClientRect();
+       let page3 = pages[2].getBoundingClientRect();
+       let page4 = pages[3].getBoundingClientRect();
+
+ 
+
+      if(page1.top >= -414 && page1.top <= 67 ){
+        nav_links[1].style.color = '#f4623a';
+      
+      }
+      if(page2.top > -488 && page2.top <= 67 ){
+        nav_links[2].style.color = '#f4623a';
+      
+      }
+      if(page3.top >= -670 && page3.top <= 74 ){
+        nav_links[3].style.color = '#f4623a';
+      
+      }
+      if(page4.top <= 61 ){
+        nav_links[4].style.color = '#f4623a';
+      
+      }
+ 
+  console.log(page2.top, windowDist);
+   
+
+   
+}
+window.addEventListener('scroll', changeNavItemColor);
+
+
