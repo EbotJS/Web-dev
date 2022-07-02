@@ -37,6 +37,7 @@ let locMessage = JSON.parse(localStorage.getItem('messages'));
 // validation using regular expressions
 const numContainsLetter = /[^(\d)]/;
 const nameContainsNum = /[^(\D)]/;
+const isEmailCorrect = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // Error p tags
 const errorParas = document.querySelectorAll('p');
@@ -62,14 +63,14 @@ const validateFields = () => {
     }
 
 
-    if(email.value.includes('@') === true && email.value.includes('.com') && email.value.includes('gmail')){
+    if(isEmailCorrect.test(email.value) == true){
         p2.remove(); // to remove the error message when the input is correct
         
         value[1] = true;
       
-    }else if(email.value.includes('@') === false){
+    }else if(isEmailCorrect.test(email.value) == false){
         labels[1].append(p2);
-        p2.innerText = 'email must contain the @ symbol';
+        p2.innerText = "make sure that your email is in this format \"you@gmail.com\"";
     }
 
 

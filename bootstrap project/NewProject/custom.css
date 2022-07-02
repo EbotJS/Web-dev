@@ -30,6 +30,8 @@ hr{
     height: 3.5px;
 }
 
+
+
 .home p{
     line-height: 1.5rem;
     font-weight: var(--regular);
@@ -83,6 +85,26 @@ hr{
     border: 0px;
 }
 
+/* btns */
+/* .submit-btn{
+    background-color: #fb967b;
+}
+
+.submit-btn:hover{
+    background-color: #fb967b;
+} */
+
+footer{
+    font-family: var(--ff-2);
+}
+
+/* .required-field{
+    display: none;
+} */
+.disabled{
+    background: #ff734d !important; 
+}
+
 /* .portfolio img{
     mix-blend-mode:overlay;
 } */
@@ -100,6 +122,8 @@ hr{
 
     }
 } */
+
+
 @media (min-width: 1200px){
    
 .home h1{
@@ -111,5 +135,6 @@ hr{
 /* .home-page{
     background-color: red;
 } */
+
 
 }

@@ -26,14 +26,6 @@
   font-size: 0.8rem;
 }
 
-.submit-btn {
-  background-color: #f4623a;
-}
-
-.submit-btn:hover {
-  background-color: #f4623a;
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -66,16 +58,11 @@ header .logo {
   background-position-x: center;
 }
 .home h1 {
-  font-size: 35.5px;
   font-family: "Merriweather Sans", sans-serif;
 }
 .home hr {
   background-color: #f4623a;
   opacity: 1;
-}
-
-.main-title {
-  font-size: 40px;
 }
 
 .get-started {

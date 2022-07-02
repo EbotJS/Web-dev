@@ -96,24 +96,24 @@ const changeNavItemColor = () => {
 
  
 
-      if(page1.top >= -414 && page1.top <= 67 ){
+      if(page1.top >= -414 && page1.top <= 69 ){
         nav_links[1].style.color = '#f4623a';
       
       }
-      if(page2.top > -488 && page2.top <= 67 ){
+      if(page2.top >= -486.734375 && page2.top <= 73.265625 ){
         nav_links[2].style.color = '#f4623a';
       
       }
-      if(page3.top >= -670 && page3.top <= 74 ){
+      if(page3.top >= -684.8435 && page3.top <= 71.15625 ){
         nav_links[3].style.color = '#f4623a';
       
       }
-      if(page4.top <= 61 ){
+      if(page4.top <= 70 ){
         nav_links[4].style.color = '#f4623a';
       
       }
  
-  console.log(page2.top, windowDist);
+  // console.log(page1.top, windowDist);
    
 
    
@@ -121,3 +121,171 @@ const changeNavItemColor = () => {
 window.addEventListener('scroll', changeNavItemColor);
 
 
+
+
+
+// form validation
+
+
+
+// Array.prototype.slice.call(forms).forEach(form => {
+//   if(form.value == ""){
+//     contactForm.classList.add("disabled");
+//   }
+// })
+
+
+/* This function checks if the input field is empty and displays to the user that that
+field is required */
+
+
+
+
+
+
+const nameFieldIsEmpty = () => {
+let AllRequired = document.querySelectorAll('.req');
+  let nameField = document.getElementById('name');
+  if(nameField.value == ""){
+  AllRequired[0].classList.remove("d-none");
+}
+}
+
+const emailFieldIsEmpty = () => {
+let AllRequired = document.querySelectorAll('.req');
+  let emailField = document.getElementById('email');
+  if(emailField.value == ""){
+    AllRequired[1].classList.remove("d-none")
+     }
+}
+
+const pNumberFieldIsEmpty = () => {
+let AllRequired = document.querySelectorAll('.req');
+  let pNumberField = document.getElementById('p-number');
+  if(pNumberField.value == ""){
+    AllRequired[2].classList.remove("d-none")
+     }
+}
+
+const messageFieldIsEmpty = () => {
+  let AllRequired = document.querySelectorAll('.req');
+  let messageField = document.getElementById('message');
+  if(messageField.value == ""){
+    AllRequired[3].classList.remove("d-none")
+     }
+}
+ 
+
+////////////////////////////////////////////////////////////////////////////////////
+  
+// These functions make sure that when something is entered into the input field or deleted, 
+// the input field will not be empty on keyup
+
+const nameFieldIsNotEmpty = () => {
+  let nameField = document.getElementById('name');
+let AllRequired = document.querySelectorAll('.req');
+if(nameField.value !== ""){
+  AllRequired[0].classList.add("d-none");
+  }else{
+    AllRequired[0].classList.remove("d-none")    
+  }
+
+}
+const emailFieldIsNotEmpty = () => {
+  let emailField = document.getElementById('email');
+let AllRequired = document.querySelectorAll('.req');
+if(emailField.value !== ""){
+  AllRequired[1].classList.add("d-none");
+
+  }else{
+    AllRequired[1].classList.remove("d-none")    
+  }
+
+}
+const pNumberFieldIsNotEmpty = () => {
+  let pNumberField = document.getElementById('p-number');
+let AllRequired = document.querySelectorAll('.req');
+if(pNumberField.value !== ""){
+  AllRequired[2].classList.add("d-none");
+
+  }else{
+    AllRequired[2].classList.remove("d-none")    
+  }
+
+}
+const messageFieldIsNotEmpty = () => {
+  let messageField = document.getElementById('message');
+let AllRequired = document.querySelectorAll('.req');
+if(messageField.value !== ""){
+  AllRequired[3].classList.add("d-none");
+
+  }else{
+    AllRequired[3].classList.remove("d-none")    
+  }
+
+}
+  
+/////////////////////////////////////////////////////////////
+
+
+// let forms = document.querySelectorAll(".needs-validation");
+// let contactForm = document.getElementById("contactForm");
+
+
+// Array.prototype.slice.call(forms).forEach(form =>{
+//    form.addEventListener("onkeydown", (event)=>{
+//    if(!form.checkValidity()){   
+//    event.preventDefault();
+//     event.stopPropagation();
+//     console.log("valid");
+//   }
+//   // let submitBtn = document.getElementById("submitBtn");
+//   // submitBtn.classList.remove("disabled");
+//   form.classList.add("was-validated");
+//    }, false)
+// })
+
+
+//this is for the validation of the form
+///////////////////////////////////////////////////////////////////////////
+let nameField = document.getElementById('name');
+let pNumberField = document.getElementById('p-number');
+let messageField = document.getElementById('message');
+
+const isEmailValidated = {value: false};
+const emailValidation = () =>{
+  const isEmailCorrect = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let emailField = document.getElementById('email');
+  invalidMessage = document.querySelector(".inv");
+
+  if(isEmailCorrect.test(emailField.value) == false){
+  invalidMessage.classList.remove("d-none");
+  isEmailValidated.value = false;
+  }if(isEmailCorrect.test(emailField.value) == true){
+    invalidMessage.classList.add("d-none");
+    isEmailValidated.value = true;
+  }
+
+console.log(isEmailValidated);
+if(nameField.value !== "" && pNumberField.value !== "" 
+&& messageField.value !== "" && isEmailValidated.value == true ){
+  document.getElementById("submitBtn").classList.remove("disabled");
+}if(nameField.value !== "" && pNumberField.value !== "" 
+&& messageField.value !== "" && isEmailValidated.value == false ){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" && pNumberField.value == "" 
+&& messageField.value == "" && isEmailValidated.value == false){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" && pNumberField.value == "" 
+&& messageField.value == "" && isEmailValidated.value == true){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" || pNumberField.value == "" 
+|| messageField.value == ""){
+  document.getElementById("submitBtn").classList.add("disabled");
+}
+  
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////
