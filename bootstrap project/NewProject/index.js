@@ -1,20 +1,27 @@
 
 
 
+
+
 const changeWhenResized = () =>{
     let viewWidth = window.innerWidth;
     let homePage = document.getElementById('home');
     let nav = document.getElementById('nav');
     let nav_links = document.querySelectorAll('.nav-link');
 
-    if(viewWidth > 991){
+    let mainCoordinates = document.getElementById('main').getBoundingClientRect();
+  
+
+
+    if(viewWidth >= 991 && mainCoordinates.top == 0){
         homePage.style.height = '100vh';
         homePage.style.backgroundPositionY = 'center';
         // homePage.style.backgroundPosition = 'top top';
         nav.style.backgroundColor = 'inherit';
         nav.style.boxShadow = "none";
         nav_links.forEach(nav => {
-          nav.style.color = "#f8f9fa";
+          nav.style.color = "#ffffff98";
+    
         });
       }
       else{
@@ -22,7 +29,8 @@ const changeWhenResized = () =>{
         nav.style.backgroundColor = '#f8f9fa';
         nav_links[0].style.color = '#212529';
         for(let i=1; i<5; i++){
-          nav_links[i].style.color = '#6c757d';
+          // nav_links[i].style.color = '#6c757d';
+          nav_links[i].style.color = '#212529';
         }
       }
 }
@@ -39,14 +47,31 @@ const changeOnScroll = () => {
   // let viewWidth = obj.newViewWidth;
 // let viewWidth = window.viewWidth;
 
-  if(window.pageYOffset == 0){
+  if(window.pageYOffset == 0 && nav.scrollWidth >= 991){
    nav.style.backgroundColor = 'inherit';
    nav.style.boxShadow = "none";
 
-   nav_links.forEach(nav => {
-    nav.style.color = "#f8f9fa";
+   nav_links.forEach(nav_link => {
+    nav_link.style.color = "#ffffff98";
   }); 
+
+  nav_links.forEach(nav => {
+    nav.addEventListener('mouseover', (e)=>{
+      nav.style.color = "#fff";
+ 
+    })
+    nav.addEventListener('mouseout', (e)=>{
+      nav.style.color = "#ffffff98";
+ 
+    })
+   });
   }
+  // if(nav.scrollWidth < 991){
+  //   for(let i=1; i<5; i++){
+  //     // nav_links[i].style.color = '#6c757d';
+  //     nav_links[i].style.color = '#212529';
+  //   }
+  // }
   
   else{
      nav.style.backgroundColor = '#f8f9fa'; 
@@ -54,15 +79,26 @@ const changeOnScroll = () => {
     nav_links.forEach(nav => {
       nav.style.color = "#212529";
     });
-  }
+  
 
+  nav_links.forEach(nav => {
+    nav.addEventListener('mouseover', (e)=>{
+      nav.style.color = "#f4623a";
+ 
+    })
+    nav.addEventListener('mouseout', (e)=>{
+      nav.style.color = "#212529";
+ 
+    })
+   });
+}
 
 }
 
 
 
 
-
+window.addEventListener("load", changeOnScroll);
 window.addEventListener("scroll", changeOnScroll);
 
 
@@ -84,7 +120,7 @@ const changeNavItemColor = () => {
    const getInTouchPage = document.getElementById('get-in-touch');
    let pages = [getStartedPage, servicesPage, portfolioPage, getInTouchPage];
    let nav_links = document.getElementsByClassName('nav-link');
-   let windowDist = window.pageYOffset;
+   
 
 
   
@@ -100,15 +136,15 @@ const changeNavItemColor = () => {
         nav_links[1].style.color = '#f4623a';
       
       }
-      if(page2.top >= -486.734375 && page2.top <= 73.265625 ){
+      if(page2.top >= -486.734375 && page2.top <= 65 ){
         nav_links[2].style.color = '#f4623a';
       
       }
-      if(page3.top >= -684.8435 && page3.top <= 71.15625 ){
+      if(page3.top >= -777 && page3.top <= 71.15625 ){
         nav_links[3].style.color = '#f4623a';
       
       }
-      if(page4.top <= 70 ){
+      if(page4.top <= 70.390625 ){
         nav_links[4].style.color = '#f4623a';
       
       }
@@ -122,6 +158,13 @@ window.addEventListener('scroll', changeNavItemColor);
 
 
 
+// const getStartedPage = document.getElementById('getStarted');
+// const servicesPage = document.getElementById('services');
+// const portfolioPage = document.getElementById('portfolio');
+// const getInTouchPage = document.getElementById('get-in-touch');
+// let pages = [getStartedPage, servicesPage, portfolioPage, getInTouchPage];
+// let page3 = pages[2].getBoundingClientRect();
+// console.log(page3.top);
 
 
 // form validation
@@ -144,34 +187,45 @@ field is required */
 
 
 const nameFieldIsEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
 let AllRequired = document.querySelectorAll('.req');
   let nameField = document.getElementById('name');
   if(nameField.value == ""){
   AllRequired[0].classList.remove("d-none");
+  inputs[0].classList.add("is-invalid");
 }
 }
 
 const emailFieldIsEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
 let AllRequired = document.querySelectorAll('.req');
   let emailField = document.getElementById('email');
   if(emailField.value == ""){
-    AllRequired[1].classList.remove("d-none")
+    AllRequired[1].classList.remove("d-none");
+    inputs[1].classList.add("is-invalid");
+
      }
 }
 
 const pNumberFieldIsEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
 let AllRequired = document.querySelectorAll('.req');
   let pNumberField = document.getElementById('p-number');
   if(pNumberField.value == ""){
-    AllRequired[2].classList.remove("d-none")
+    AllRequired[2].classList.remove("d-none");
+    inputs[2].classList.add("is-invalid");
+
      }
 }
 
 const messageFieldIsEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
   let AllRequired = document.querySelectorAll('.req');
   let messageField = document.getElementById('message');
   if(messageField.value == ""){
-    AllRequired[3].classList.remove("d-none")
+    AllRequired[3].classList.remove("d-none");
+    inputs[3].classList.add("is-invalid");
+
      }
 }
  
@@ -182,12 +236,17 @@ const messageFieldIsEmpty = () => {
 // the input field will not be empty on keyup
 
 const nameFieldIsNotEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
   let nameField = document.getElementById('name');
 let AllRequired = document.querySelectorAll('.req');
 if(nameField.value !== ""){
   AllRequired[0].classList.add("d-none");
+  inputs[0].classList.remove("is-invalid");
+
   }else{
-    AllRequired[0].classList.remove("d-none")    
+    AllRequired[0].classList.remove("d-none");
+    inputs[0].classList.add("is-invalid");
+
   }
 
 }
@@ -196,31 +255,39 @@ const emailFieldIsNotEmpty = () => {
 let AllRequired = document.querySelectorAll('.req');
 if(emailField.value !== ""){
   AllRequired[1].classList.add("d-none");
-
   }else{
-    AllRequired[1].classList.remove("d-none")    
+    AllRequired[1].classList.remove("d-none");
+      
   }
 
 }
 const pNumberFieldIsNotEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
   let pNumberField = document.getElementById('p-number');
 let AllRequired = document.querySelectorAll('.req');
 if(pNumberField.value !== ""){
   AllRequired[2].classList.add("d-none");
+  inputs[2].classList.remove("is-invalid");    
 
   }else{
-    AllRequired[2].classList.remove("d-none")    
+    AllRequired[2].classList.remove("d-none");
+    inputs[2].classList.add("is-invalid");    
+
   }
 
 }
 const messageFieldIsNotEmpty = () => {
+  let inputs = document.querySelectorAll('.form-control');
   let messageField = document.getElementById('message');
 let AllRequired = document.querySelectorAll('.req');
 if(messageField.value !== ""){
   AllRequired[3].classList.add("d-none");
+  inputs[3].classList.remove("is-invalid");
 
   }else{
-    AllRequired[3].classList.remove("d-none")    
+    AllRequired[3].classList.remove("d-none");
+    inputs[3].classList.add("is-invalid");    
+
   }
 
 }
@@ -257,12 +324,16 @@ const emailValidation = () =>{
   const isEmailCorrect = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let emailField = document.getElementById('email');
   invalidMessage = document.querySelector(".inv");
+  let inputs = document.querySelectorAll('.form-control');
 
   if(isEmailCorrect.test(emailField.value) == false){
   invalidMessage.classList.remove("d-none");
+  inputs[1].classList.add("is-invalid");
   isEmailValidated.value = false;
-  }if(isEmailCorrect.test(emailField.value) == true){
+  }else if(isEmailCorrect.test(emailField.value) == true){
     invalidMessage.classList.add("d-none");
+    inputs[1].classList.remove("is-invalid");
+
     isEmailValidated.value = true;
   }
 
@@ -286,6 +357,36 @@ if(nameField.value !== "" && pNumberField.value !== ""
   
 
 }
+const allValidation = () =>{
+  const isEmailCorrect = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let emailField = document.getElementById('email');
+  invalidMessage = document.querySelector(".inv");
 
+  if(isEmailCorrect.test(emailField.value) == false){
+  isEmailValidated.value = false;
+  }else if(isEmailCorrect.test(emailField.value) == true){
+    isEmailValidated.value = true;
+  }
+
+console.log(isEmailValidated);
+if(nameField.value !== "" && pNumberField.value !== "" 
+&& messageField.value !== "" && isEmailValidated.value == true ){
+  document.getElementById("submitBtn").classList.remove("disabled");
+}if(nameField.value !== "" && pNumberField.value !== "" 
+&& messageField.value !== "" && isEmailValidated.value == false ){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" && pNumberField.value == "" 
+&& messageField.value == "" && isEmailValidated.value == false){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" && pNumberField.value == "" 
+&& messageField.value == "" && isEmailValidated.value == true){
+  document.getElementById("submitBtn").classList.add("disabled");
+}if(nameField.value == "" || pNumberField.value == "" 
+|| messageField.value == ""){
+  document.getElementById("submitBtn").classList.add("disabled");
+}
+  
+
+}
 
 ///////////////////////////////////////////////////////////////////////////

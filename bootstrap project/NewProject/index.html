@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./assets/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
+   
    
 
     <link rel="stylesheet" href="./css/style.css">
@@ -19,7 +19,7 @@
     <header>
         <nav id="nav" class="navbar navbar-expand-lg fixed-top navigation">
             <div class="container py-2">
-              <a class="nav-link logo fs-5 mx-3" href="#home">Start Bootstrap</a>
+              <a class="nav-link logo fs-5 mx-3" href="#">Start Bootstrap</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -46,6 +46,7 @@
           
     </header>
 
+    <main id="main">
     <section id="home" class="home py-5">
      
       <div class="row gx-0 gy-4 d-flex d-sm-flex flex-column py-5 containter align-items-center">
@@ -215,23 +216,23 @@
         <div class="col-10 col-md-11 col-lg-6">
         <form id="contactForm" class="needs-validation form d-flex flex-column align-items-center pb-5" novalidate>
           <div class="form-floating mb-3 w-100">
-            <input type="text" class="form-control is-invalid" id="name" onblur="nameFieldIsEmpty()" onkeyup="nameFieldIsNotEmpty(); emailValidation()" placeholder="Achale Ebot Oma">
+            <input type="text" class="form-control" id="name" onblur="nameFieldIsEmpty()" onkeyup="nameFieldIsNotEmpty(); allValidation()" placeholder="Achale Ebot Oma">
             <label for="name">Full name</label>
             <div class="req d-none invalid-feedback">A name is required</div>
           </div>
       <div class="form-floating mb-3 w-100">
-        <input type="email" class="form-control is-invalid" id="email" onblur="emailFieldIsEmpty()" onkeyup="emailFieldIsNotEmpty(); emailValidation()" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" onblur="emailFieldIsEmpty()" onkeyup="emailFieldIsNotEmpty(); emailValidation()" placeholder="name@example.com">
         <label for="email">Email address</label>
         <div class="req d-none invalid-feedback">An email is required</div>
         <div class="inv invalid-feedback d-none">Email is not valid</div>
       </div>
       <div class="form-floating mb-3 w-100">
-        <input type="tel" class="form-control is-invalid" id="p-number" onblur="pNumberFieldIsEmpty()" onkeyup="pNumberFieldIsNotEmpty(); emailValidation()" placeholder="677287629">
+        <input type="tel" class="form-control" id="p-number" onblur="pNumberFieldIsEmpty()" onkeyup="pNumberFieldIsNotEmpty(); allValidation()" placeholder="677287629">
         <label for="p-number">Phone number</label>
         <div class="req d-none invalid-feedback">A phone number is required</div>
       </div>
       <div class="form-floating pb-3 w-100">
-        <textarea class="form-control is-invalid" onblur="messageFieldIsEmpty()" onkeyup="messageFieldIsNotEmpty(); emailValidation()" rows="20" cols="32" placeholder="Leave a comment here" id="message" style="height: 200px"></textarea>
+        <textarea class="form-control" onblur="messageFieldIsEmpty()" onkeyup="messageFieldIsNotEmpty(); allValidation()" rows="20" cols="32" placeholder="Leave a comment here" id="message" style="height: 200px"></textarea>
         <label for="message">Message</label>
         <div class="req d-none invalid-feedback">A message is required</div>
       </div>
@@ -247,6 +248,7 @@
         <p class="number text-secondary pt-2">+1(555)123-4567</p>
       </div>
     </section>
+  </main>
 
     <footer id="footer" class="py-5 text-center text-secondary bg-light text-muted small">
         Copyright© 2022-Company Name

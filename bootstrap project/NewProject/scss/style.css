@@ -40,15 +40,6 @@ header .logo {
   font-family: "Merriweather Sans", sans-serif;
 }
 
-.nav-items li {
-  font-size: 0.9rem;
-}
-.nav-items li a {
-  color: #495057;
-  font-family: "Merriweather Sans", sans-serif;
-  font-weight: 700;
-}
-
 .home {
   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(/assets/img/bg-masthead.jpg);
   width: 100%;
@@ -73,20 +64,12 @@ header .logo {
   background-color: #f4623a;
 }
 
-.input {
-  color: red;
-}
-
 .number {
   font-family: Merriweather, sans-serif;
 }
 
 a {
   text-decoration: none;
-}
-
-.nav-link:hover {
-  color: red;
 }
 
 label {
